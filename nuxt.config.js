@@ -22,6 +22,7 @@ module.exports = {
     script: [
       { src: '/libs/supermap/leaflet-src.js' },
       { src: '/libs/supermap/iclient-leaflet-es6.min.js' },
+      { src: '/libs/leaflet.ChineseTmsProviders.js' },
       { src: '/libs/turf.min.js' }
     ]
   },

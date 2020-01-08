@@ -1,0 +1,47 @@
+[
+    {
+        "companySimpleName": "黄河公司",
+        "gisCompanyDZInfoVOList": [
+            {
+                "companyInfo": null,
+                "longitude": 95,
+                "latitude": 32,
+                "dzTypeStr": "泥石流",
+                "dzId": "Ⅱ级",
+                "Id": 10,
+                "dzName": "地质点"
+            },
+            {
+                "companyInfo": null,
+                "longitude": 95,
+                "latitude": 36,
+                "dzTypeStr": "泥石流",
+                "dzId": "Ⅱ级",
+                "Id": 20,
+                "dzName": "地质点"
+            }
+        ]
+    },{
+        "companySimpleName": "五凌电力",
+        "gisCompanyDZInfoVOList": [
+            {
+                "companyInfo": null,
+                "longitude": 105,
+                "latitude": 32,
+                "dzTypeStr": "泥石流",
+                "dzId": "Ⅱ级",
+                "Id": 30,
+                "dzName": "地质点"
+            },
+            {
+                "companyInfo": null,
+                "longitude": 110,
+                "latitude": 35,
+                "dzTypeStr": "泥石流",
+                "dzId": "Ⅱ级",
+                "Id": 40,
+                "dzName": "地质点"
+            }
+        ]
+    }
+]

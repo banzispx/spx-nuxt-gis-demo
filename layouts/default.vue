@@ -11,7 +11,7 @@
       </el-dropdown>
       <span>王小虎</span>
     </el-header>
-    <el-container >
+    <el-container>
       <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
         <el-menu
           :default-active="activeRoute"
@@ -41,8 +41,8 @@
                 </nuxt-link>
               </el-menu-item-group>
             </el-submenu>
-            <nuxt-link :to="item.path" v-if="!item.childs" :disabled="item.disabled" >
-              <el-menu-item :index="item.path" >
+            <nuxt-link :to="item.path" v-if="!item.childs" :disabled="item.disabled">
+              <el-menu-item :index="item.path">
                 <i :class="`${item.icon}`"></i>
                 <span slot="title">{{item.name}}</span>
               </el-menu-item>
@@ -50,14 +50,11 @@
           </div>
         </el-menu>
       </el-aside>
-      <el-container >
+      <el-container>
         <el-main>
           <nuxt />
         </el-main>
-        <el-footer>
-          
-
-        </el-footer>
+        <!-- <el-footer></el-footer> -->
       </el-container>
     </el-container>
   </el-container>
@@ -72,12 +69,15 @@ export default {
           path: '/gis',
           name: 'gis',
           icon: 'el-icon-star-on',
-          childs: [{ path: '/common', name: '常规操作' }]
+          childs: [
+            { path: '/deal', name: '常规操作' },
+            { path: '/common', name: '地图切换' }
+          ]
         },
         { id: 2, path: '/svg', name: 'svg', icon: 'el-icon-help' },
         { id: 3, path: '/echart', name: 'echart', icon: 'el-icon-s-flag' }
       ],
-      activeRoute: '/',
+      activeRoute: '/'
     }
   },
   created() {
@@ -89,9 +89,8 @@ export default {
       //  console.log(this.$route.path);
     }
   },
- 
-  mounted() {
-  },
+
+  mounted() {},
   methods: {
     handleOpen(key, keyPath) {
       console.log(key, keyPath)
