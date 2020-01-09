@@ -134,7 +134,10 @@ body {
 }
 
 .el-main {
-  // background-color: #e9eef3;
+  position: relative;
+  padding: 20px;
+  background-color: #e9eef3;
+  box-sizing: border-box;
   // color: #333;
   // text-align: center;
   // line-height: 160px;

@@ -1,7 +1,6 @@
 <template>
   <section>
-    <!-- <div class="deal">操作</div> -->
-    <div id="map" class="map"></div>
+    <div id="map" class="main-map"></div>
     <div class="main-top">
       <div class="top-center">
         <div>
@@ -26,15 +25,26 @@
         </div>
       </div>
     </div>
-    <div class="right-icon">
-      <el-button type="primary" icon="el-icon-circle-plus-outline" @click="drawer = true"></el-button>
-      <el-drawer
-      style="width:150px;height:250px"
-        visible.sync = true
-        direction="rtl"
-        :modal="false"
-        :modal-append-to-body="false"
-      ></el-drawer>
+
+    <div class="collapse">
+      <div class="collapse_container" :class="{ collapse_isactive : isActive}">
+        <div @click="isActive = !isActive" class="collapse_header">
+          <p class="content-p" :class="{ p_isactive : isActive}">
+            <i class="el-icon-arrow-up"></i>
+          </p>
+          <!-- <h4 :class="{ h4_isactive : isActive}">图&nbsp;例</h4> -->
+        </div>
+        <div class="collapse_body" :class="{ collapse_body_isactive : isActive}">
+          <div style="border-right: 1px solid #999999;padding-right: 30px;">
+            920万m³
+            <br />本月累积入库
+          </div>
+          <div>
+            679万m³
+            <br />本月累积出库
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </template>
@@ -49,7 +59,9 @@ export default {
   name: '',
   data() {
     return {
+      show: false,
       drawer: false,
+      isActive: false,
       chinaBoundary: chinaBoundary,
       chinaBouder: chinaBouder
     }
@@ -128,10 +140,14 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-.map {
-  width: 100%;
+.main-map {
+  // width: 1000px;
+  width: 98%;
   height: 700px;
   z-index: 1;
+  position: absolute;
+  overflow: hidden;
+  touch-action: none;
 }
 .main-top {
   margin: 0 auto;
@@ -160,11 +176,75 @@ export default {
     }
   }
 }
-.right-icon {
-  z-index: 10;
+
+.collapse {
   position: fixed;
-  top: 250px;
+  z-index: 10;
+  top: 256px;
   right: 15px;
+}
+.collapse_container {
+  text-align: center;
+  transition: all 0.5s ease;
+  width: 0px;
+  height: 102px;
+  background-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0px 4px 20px 0px rgba(33, 33, 33, 0.54);
+  border-radius: 4px;
+  .collapse_header {
+    position: relative;
+    width: 100%;
+  }
+  h4 {
+    position: absolute;
+    z-index: 5;
+    width: 100%;
+    margin: 0;
+    height: 43px;
+    line-height: 43px;
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(124, 124, 124, 1);
+    cursor: pointer;
+    transition: all 0.5s ease;
+  }
+  .h4_isactive {
+    height: 0;
+    color: transparent;
+  }
+  .content-p {
+    position: absolute;
+    z-index: 4;
+    top: 0px;
+    left: -38px;
+    text-align: center;
+    line-height: 26px;
+    cursor: pointer;
+    transition: all 0.5s ease-in;
+    display: inline-block;
+    width: 38px;
+    height: 63px;
+    background-color: cornflowerblue;
+  }
+  .p_isactive {
+    // transform: rotate(180deg);
+  }
+  .collapse_body {
+    height: 100%;
+    overflow: hidden;
+    width: 272px;
+    transition: all 0.5s ease-in;
+    display: none;
+  }
+  .collapse_body_isactive {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    line-height: 29px;
+  }
+}
+.collapse_isactive {
+  width: 272px;
 }
 </style>
 
