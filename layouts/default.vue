@@ -75,7 +75,20 @@ export default {
           ]
         },
         { id: 2, path: '/svg', name: 'svg', icon: 'el-icon-help' },
-        { id: 3, path: '/echart', name: 'echart', icon: 'el-icon-s-flag' }
+        { id: 3, path: '/echart', name: 'echart', icon: 'el-icon-s-flag' },
+        {
+          id: 3,
+          path: '/waterVolume',
+          name: '水量管理',
+          icon: 'el-icon-s-flag',
+          childs: [
+            { path: '/monitor', name: '监测预警' },
+            { path: '/data', name: '数据管理' },
+            { path: '/observe', name: '观测报表' },
+            { path: '/balance', name: '平衡分析' },
+            { path: '/order', name: '调令管理' }
+          ]
+        }
       ],
       activeRoute: '/'
     }
